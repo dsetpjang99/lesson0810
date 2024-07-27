@@ -8,7 +8,7 @@
 
     <style>
         form{           
-            width:400px;
+            width:30%;
             background-color:lightsteelblue;
             color:black; 
             /* margin: top right bottom left */
@@ -22,28 +22,20 @@
         }
         
         label{
-            width:150px;
-            height:20px;
-            font-size: 30px;
-            padding: 2px 12px;
-            margin: 8px 2px;
+            width:70%;
+            margin: 6px 0px;
             
         }
 
         input{
-            width:150px;
-            height:30px;
-            font-size: 20px;
-            padding: 2px 12px;
-            margin: 8px 2px;
+            width:70%;
+            margin: 6px 0px;
         }
 
         button{
-            width:150px;
-            height:50px;
-            font-size: 30px;
-            padding: 2px 12px;
-            margin: 8px 2px;
+            font-size:24px;
+            padding:6px 10px;
+            margin: 6px 10px;
             background-color: gold;
             border-radius: 14px;
             font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -52,11 +44,26 @@
         #return{
             width:150px;
             height:50px;
-            font-size: 30px;
+            font-size: 24px;
             padding: 2px 12px;
             margin: 8px 2px;
             color:red;
             font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        @media screen and (max-width:768px) {
+            form{
+                width:50%;
+            }            
+        }
+
+        @media screen and (max-width:468px) {
+            form{
+                width:90%;
+            }
+            input{
+                width:90%;
+            }            
         }
     </style>
 </head>
