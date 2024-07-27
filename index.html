@@ -11,13 +11,16 @@
             font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-align: center;
         }
+
         .list{
             text-align: left; 
-            background-color:paleturquoise; 
+            background-color:navajowhite; 
             color:red; 
             padding: 1px 12px;
+            margin: 8px 2px;
             border: 1px black solid;
         }
+        
         .banner{
             width: 250px;
             display:inline-block;
@@ -30,6 +33,7 @@
             /* padding: top right bottom left */
             padding: 4px 8px 4px 8px;
         }
+        
         #title{
             color:indigo;
             background-color:palegoldenrod;
@@ -40,6 +44,35 @@
             /* padding: top right bottom left */
             padding: 6px 10px 6px 10px;
             text-align: center;
+        }
+        
+        .slogan{
+            background-color: chartreuse;
+            font-size: 24px;
+        }
+        
+        #bmi-table{
+            width:600px;
+            height:200px;
+            background-color:khaki;
+            color:black;
+            margin: 0 auto;
+        }
+
+        #bmi-table thead{
+            background-color:darkred;
+            color:whitesmoke;
+        }
+
+        #bmi-table th{
+            font-size: 16px;
+            font-weight: lighter;
+        }
+
+        #bmi-table tbody{
+            font-size: 12px;
+            font-weight: lighter;
+            text-align: left;
         }
     </style>
 </head>
@@ -60,7 +93,9 @@
             那你大可以去看看你喜歡的健身老戲骨幹，
             他們是如何做到年過50/60歲，
             依舊在舞臺上或者是電影螢幕上綻放光彩。</em>
-            <u><b>答案就是堅持運動健身!</b></u>
+            <span class="slogan">
+                <u><b>答案就是堅持運動健身!</b></u>
+            </span>
         </p>
     </div>
     
@@ -124,7 +159,7 @@
     <img src="images/pic-3.jpg" alt="圖片3" width="32%">
 
     <h2>一天所需卡路里</h2>
-        <table border="1">
+        <table border="1" id="bmi-table">
             <thead>
                 <tr>
                     <th>每天活動量</th>
