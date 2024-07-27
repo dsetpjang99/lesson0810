@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI計算機</title>
+    <link rel="stylesheet" href="res/style.css">
+
+    <style>
+        form{           
+            width:400px;
+            background-color:lightsteelblue;
+            color:black; 
+            /* margin: top right bottom left */
+            margin: 0 auto;
+            /* padding: top right bottom left */
+            padding: 10px;
+            border: 2px green solid;
+            border-radius: 10px;
+            font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            
+        }
+        
+        label{
+            width:150px;
+            height:20px;
+            font-size: 30px;
+            padding: 2px 12px;
+            margin: 8px 2px;
+            
+        }
+
+        input{
+            width:150px;
+            height:30px;
+            font-size: 20px;
+            padding: 2px 12px;
+            margin: 8px 2px;
+        }
+
+        button{
+            width:150px;
+            height:50px;
+            font-size: 30px;
+            padding: 2px 12px;
+            margin: 8px 2px;
+            background-color: gold;
+            border-radius: 14px;
+            font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #return{
+            width:150px;
+            height:50px;
+            font-size: 30px;
+            padding: 2px 12px;
+            margin: 8px 2px;
+            color:red;
+            font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>BMI計算機</h1>
+    <h1 id="title">BMI計算機</h1>
     <form action="">
         <label for="username">姓名</label>
         <input id="username" name="username" type="text" placeholder="jerry"><br>
@@ -19,12 +74,11 @@
         <label for="weight">體重</label>
         <input id="weight" name="weight" step="0.1" type="number" placeholder="67.5"><br>
        
-        <input type="file">
-        <input type="checkbox">記住帳號
+        
 
 
         <p><button>計算</button></p>
-        <a href="index.html">返回</a>
+        <a id="return" href="index.html">返回</a>
 
 
     </form>
