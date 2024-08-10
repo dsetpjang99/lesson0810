@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,16 @@
 
 
     <script>
-        let x=10;
-        let y=20;
-        const PI=3.1415926;
-        x=20;
-        let z=x+y;
+        let x = 10;
+        let y = 20;
+        const PI = 3.1415926;
+        x = 20;
+        let z = x + y;
         console.log(z);
-        console.log(x-y);
+        console.log(x - y);
 
-        
-        
+
+
         /**
          * prompt =>提示輸入
          * log    =>輸出
@@ -31,33 +32,101 @@
          * typeof  =>觀察變數型態
          */
 
-        
+
         //取得圓面積邏輯
         let radius = prompt("請輸入半徑:");
-        console.log(typeof(radius));
-        let area=radius**2*PI;
-        const result="半徑為:"+ radius + "面積為" +  area;
-        console.log(result); 
+        console.log(typeof (radius));
+        let area = radius ** 2 * PI;
+        const result = "半徑為:" + radius + "面積為" + area;
+        console.log(result);
         document.write(result);
         alert(result);
-        
+
 
         //計算BMI
-        let name=prompt("請輸入姓名");
-        let height=prompt("請輸入身高:(cm)");
-        let weight=prompt("請輸入體重:(kg)");
-        let bmi=weight/((height/100)**2);
-        console.log(name,height,weight);
-        document.write(`<h1>${name}</h1>`);
-        document.write(`<li>身高:${height}(cm)</li>`);
-        document.write(`<li>體重:${weight}(kg)</li>`);
-        document.write(`<li>BMI:${bmi.toFixed(2)}</li>`);
+        //輸入三次
+        //for (let i = 0; i < 3; i++)
 
-        document.write(`<br>姓名為:${name};BMI為:${bmi.toFixed(2)}`);
+        let count = 0;
+        let total = 0;
+        while (true) {
+            if (count == 3) {
+                break;
+            }
 
-        
+            let name = prompt("請輸入姓名");
+            let height = prompt("請輸入身高:(cm)");
+            let weight = prompt("請輸入體重:(kg)");
 
-        
+            //身高/體重 輸入不能為空
+            // or => || and => &&
+            if (height == "" || weight == "") {
+                alert("輸入不能為空！");
+            } else {
+
+                //身高 體重 設定範圍
+                //範圍1~500(包含1,500)，否則警告輸入數值不正確，不做計算
+                //未使用函式的寫法
+                /**
+                 * if ((height < 1 || height > 500) || (weight < 1 || weight > 500)) {
+                    alert("輸入數值不正確！(1~500)");
+                    continue;
+                }
+                 */
+
+                //使用函式的寫法(函式function(isValid)之內容已撰寫於下方)
+                // not => ! 使用if not將true轉為false，將false轉為true
+                //因為function(isValid)寫的內容為範圍內回傳數值，故使用if not進行判斷式邏輯之反轉
+                if (!isValid(height, 1, 300) || !isValid(weight, 1, 500)) {
+                    alert("輸入數值不正確！(1~500)");
+                    continue;
+                }
+
+                let bmi = weight / ((height / 100) ** 2);
+                console.log(name, height, weight, bmi, count);
+
+                if (isNaN(bmi)) {
+                    alert("輸入不正確！");
+                } else {
+
+                    document.write(`<h1>${name}</h1>`);
+                    document.write(`<li>身高:${height}(cm)</li>`);
+                    document.write(`<li>體重:${weight}(kg)</li>`);
+                    document.write(`<li>BMI:${bmi.toFixed(2)}</li>`);
+
+                    document.write(`<br>姓名為:${name};BMI為:${bmi.toFixed(2)}`);
+
+                    //count+=1
+                    count++;
+                    total += bmi;
+                }
+            }
+
+
+
+
+        }
+
+
+        //程式練習：輸出平均BMI
+        //設定(let)一個變數total，用於累加bmi數值(total+=bmi)，再將其輸出於網頁前端
+        document.write(`<h1>平均BMI:${(total / count).toFixed(2)}</h1>`);
+
+        /**
+         * python語法
+         * def isValid(value):
+         *      return value>=1 and value<=500
+         */
+        //函式宣告 => function
+        function isValid(value, start, end) {
+
+            return value >= start && value <= end;
+        }
+
+
+
+
     </script>
 </body>
+
 </html>
