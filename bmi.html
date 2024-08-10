@@ -48,7 +48,7 @@
             font-size: 24px;
             padding: 2px 12px;
             margin: 8px 2px;
-            color: red;
+            color: blue;
             font-family: '標楷體', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
@@ -85,31 +85,75 @@
         <label for="date">生日</label>
         <input name="date" type="date"><br>
         <label for="height">身高</label>
-        <input id="height" name="height" step="0.1" type="number" value="168.5"><br>
+        <input id="height" name="height" step="0.1" type="number" placeholder="168.5"><br>
         <label for="weight">體重</label>
-        <input id="weight" name="weight" step="0.1" type="number" value="67.5"><br>
+        <input id="weight" name="weight" step="0.1" type="number" placeholder="67.5"><br>
 
 
 
 
         <p><button onclick="calcBMI()">計算</button></p>
         <a id="return" href="index.html">返回</a>
+
+
     </div>
 
+    <p id="result">BMI：</p>
+    <p id="comment">
+        評語：
+    </p>
 
     <script>
         let heightEl = document.querySelector("#height");
         let weightEl = document.querySelector("#weight");
         let buttonEl = document.querySelector("button");
-        console.log(heightEl.value, weightEl.value, buttonEl);
+        let resultEl = document.querySelector("#result");
+        let commentEl = document.querySelector("#comment");
+        console.log(heightEl.value, weightEl.value, buttonEl, resultEl, commentEl);
 
 
 
         function calcBMI() {
             alert("click!");
+
+            if (weightEl.value == "" || heightEl.value == "") {
+                resultEl.innerHTML = `<h1 style="color:red">輸入不能為空</h1>`;
+                return;
+            }
+
             //計算bmi
             let bmi = weightEl.value / (heightEl.value / 100) ** 2;
-            alert(`BMI:${bmi.toFixed(2)}`);
+
+            //isNaN 提示輸入不正確
+            if (isNaN(bmi)) {
+
+                resultEl.innerHTML = `<h1>輸入不正確</h1>`;
+            } else {
+
+                resultEl.innerHTML = `<h1>BMI:${bmi.toFixed(2)}</h1>`;
+
+                //增加評語
+                if (bmi < 18.5) {
+                    comment = "<h1>評語：體重過輕";
+                    color = "blue"
+                } else if (bmi >= 18.5 && bmi < 24) {
+                    comment = "評語：健康體位";
+                    color = "yellow";
+                } else if (bmi >= 24 && bmi < 27) {
+                    comment = "評語：過重</h1>";
+                    color = "red";
+                } else if (bmi >= 27 && bmi < 30) {
+                    comment = "評語：輕度肥胖";
+                    color = "red";
+                } else if (bmi >= 30 && bmi < 35) {
+                    comment = "評語：中度肥胖";
+                    color = "red";
+                } else {
+                    comment = "評語：重度肥胖";
+                    color = "red";
+                }
+                commentEl.innerHTML = `<h2 style="color:${color}">${comment}</h2>`
+            }
 
         }
     </script>
